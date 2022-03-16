@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class StrikerMove : MonoBehaviour
 {
-    
+    public Button button;
     public Slider Strikerproxy;
     public float speed = 0.1f;
     private Rigidbody2D rb;
@@ -22,7 +22,7 @@ public class StrikerMove : MonoBehaviour
     bool positionset = false;
     bool no = true;
     public GameObject Board;
-
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -44,7 +44,7 @@ public class StrikerMove : MonoBehaviour
         }
         direction = (Vector2)(Mousepos2 - transform.position);
         direction.Normalize();
-        rb.AddForce(direction * x * 150);
+        rb.AddForce(direction * x * 190);
         hasstriked = true;
     }
 
@@ -100,6 +100,7 @@ public class StrikerMove : MonoBehaviour
         {
             no = false;
             print("Striker overlapstoken");
+            button.gameObject.SetActive(true);
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -107,6 +108,7 @@ public class StrikerMove : MonoBehaviour
         if (collision.gameObject.tag == "Cointag")
         {
             no = true;
+            button.gameObject.SetActive(false);
         }
     }
     private void FixedUpdate()
