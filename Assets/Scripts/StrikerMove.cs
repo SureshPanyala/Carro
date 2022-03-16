@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class StrikerMove : MonoBehaviour
 {
-    [SerializeField]
-    Slider Strikerproxy;
-    public float speed = 0.1F;
+    
+    public Slider Strikerproxy;
+    public float speed = 0.1f;
     private Rigidbody2D rb;
     public LineRenderer Line;
     private Transform selftransform;
@@ -44,7 +44,7 @@ public class StrikerMove : MonoBehaviour
         }
         direction = (Vector2)(Mousepos2 - transform.position);
         direction.Normalize();
-        rb.AddForce(direction * x * 200);
+        rb.AddForce(direction * x * 150);
         hasstriked = true;
     }
 
