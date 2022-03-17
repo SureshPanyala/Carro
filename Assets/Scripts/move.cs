@@ -112,9 +112,19 @@ public class move : MonoBehaviour
             No = true;
             button.gameObject.SetActive(false);
         }
+
         if (collision.gameObject.tag == "Holes")
         {
             Strikerrest();
+        }
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Cointag")
+        {
+            No = false;
+            print("Striker overlapstoken");
+            button.gameObject.SetActive(true);
         }
     }
     private void FixedUpdate()

@@ -102,13 +102,30 @@ public class StrikerMove : MonoBehaviour
             print("Striker overlapstoken");
             button.gameObject.SetActive(true);
         }
+        if (collision.gameObject.tag == "Holes")
+        {
+            Strikerrest();
+        }
+
     }
+    
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Cointag")
         {
             no = true;
             button.gameObject.SetActive(false);
+        }
+        
+
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Cointag")
+        {
+            no = false;
+            print("Striker overlapstoken");
+            button.gameObject.SetActive(true);
         }
     }
     private void FixedUpdate()
